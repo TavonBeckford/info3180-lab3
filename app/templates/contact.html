@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block main %}
+<body class="body" data-gr-c-s-loaded="true">
+    <section id="contact-form" class="contact-form">
+        <div class="w-container">
+            <h2 class="heading">Contact form</h2>
+            <p><strong>Fill out this form to contact the site owners.</strong></p>
+            <div id="formInstructions" class="small-text">
+                <em>Fields marked with an asterisk (*) are required.</em>
+            </div>
+            <form id="contact-form" method="POST" action="/contact">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.name.label("Name") }}<span> (Required)</span>
+                    <p>Please enter your full name</p>
+                    {{ form.name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label("Email") }}<span> (Required)</span>
+                    <p>Please enter your e-mail address</p>
+                    {{ form.email(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.subject.label("Subject") }}<span> (Required)</span>
+                    <p>Please enter the subject for your message</p>
+                    {{ form.subject(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.message.label("Message") }}<span> (Required)</span>
+                    <p>Please enter the message you would like to send</p>
+                    {{ form.message(class="form-control") }}
+                </div>
+                <button id="send-btn" type="submit" class="btn btn-primary">Send</button>
+
+            </form>
+                    </div>
+                </section>
+            </body>
+{% endblock %}
